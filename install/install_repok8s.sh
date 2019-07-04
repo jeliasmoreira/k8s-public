@@ -8,7 +8,7 @@ install_repok8s() {
      #MASTERS
     for host in $MASTERS; do
     {
-       echo "Executando no node $i"
+       echo "Executando no node $host"
         rm -rf /etc/yum.repos.d/kubernetes.repo
         cp ./kubernetes.repo /etc/yum.repos.d/kubernetes.repo
     }
@@ -17,8 +17,8 @@ install_repok8s() {
     #Workers
     for host in $Workers; do
     {
-        $SSH $i rm -rf /etc/yum.repos.d/kubernetes.repo
-        scp ./kubernetes.repo root@$i:/etc/yum.repos.d/kubernetes.repo    
+        $SSH $host rm -rf /etc/yum.repos.d/kubernetes.repo
+        scp ./kubernetes.repo root@$host:/etc/yum.repos.d/kubernetes.repo    
     }
     done
 

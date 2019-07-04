@@ -29,7 +29,7 @@ echo "Ajustando yum e instalando pacotes bases em todos os nodes"
     adjust_yum
 
 echo "Desabilitando SeLinux, swap, firewalld e auditd"
-    disable_services 
+    disable_services
 
 echo "Instalando reposiorio do k8s"
    install_repok8s 

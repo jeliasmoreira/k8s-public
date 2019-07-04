@@ -5,7 +5,7 @@
 
 
 
-disable_service()
+disable_services()
 {
     #MASTERS
     for host in $MASTERS; do
