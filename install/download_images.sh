@@ -3,7 +3,7 @@
 #Includes
         source ./install/install.param
 
-download_modules()
+download_images()
 
 {
     #MASTERS

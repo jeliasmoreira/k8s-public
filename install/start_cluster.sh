@@ -3,7 +3,7 @@
 #Includes
         source ./install/install.param
 
-pod_network()
+start_cluster()
 
 {
     #MASTERS
