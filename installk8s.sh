@@ -31,6 +31,12 @@ echo "Ajustando yum e instalando pacotes bases em todos os nodes"
 echo "Desabilitando SeLinux, swap, firewalld e auditd"
     disable_services
 
+echo "Habilitando sysctls"
+   enable_sysctls
+
+echo "Criando arquivo de modulos do k8s"
+   k8s_modules
+
 echo "Instalando reposiorio do k8s"
    install_repok8s 
 
@@ -39,12 +45,6 @@ echo "Install kubelet kubeadm kubectl"
 
 echo "Instalando docker"
    install_docker 
-
-echo "Habilitando sysctls"
-   enable_sysctls
-
-echo "Criando arquivo de modulos do k8s"
-   k8s_modules  
   
 echo "Baixando as imagens dos pods que compoem o k8s - Somente no master"
    download_images

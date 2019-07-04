@@ -19,8 +19,8 @@ k8s_modules()
     for host in $Workers; do
     {
         echo "Executando no node $host"
-            $SSH $host rm -rf /etc/modules-load.d/k8s.conf
-            scp ./k8s.conf root@$i:/etc/modules-load.d/k8s.conf
+            ssh $host rm -rf /etc/modules-load.d/k8s.conf
+            scp ./k8s.conf root@$host:/etc/modules-load.d/k8s.conf
     }
     done
 
