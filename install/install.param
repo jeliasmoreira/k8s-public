@@ -1,0 +1,20 @@
+#Arquivo de parametros, incluidos em todos os scripts
+
+#Vars
+    #Nodes
+        NODE_MASTER="192.168.0.34"
+        NODE_01="192.168.185.1"
+        NODE_02="192.168.185.2"
+        MASTERS="192.168.185.1"
+        Workers="192.168.185.2 192.168.185.3"
+    #Files
+        K8S_REPO="/etc/yum.repos.d/kubernetes.repo"
+    #Commands
+        SETENFORCE="/usr/sbin/setenforce"
+        SSH="/usr/bin/ssh"
+        CURL="/usr/bin/curl"
+        SED="/usr/bin/sed"
+        SWAPOFF="/usr/sbin/swapoff"
+        SYSTEMCTL="/usr/bin/systemctl"
+        YUM="/usr/bin/yum -y"
+        TOUCH="/usr/bin/touch"

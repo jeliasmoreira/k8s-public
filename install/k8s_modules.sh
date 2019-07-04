@@ -1,10 +1,13 @@
 #!/bin/bash
 
+#Includes
+        source ./install/install.param
+
 k8s_modules()
 
 {
     #MASTERS
-    for host in $1; do
+    for host in $MASTERS; do
    {
         echo "Executando no node $host"
             rm -rf /etc/modules-load.d/k8s.conf
@@ -13,7 +16,7 @@ k8s_modules()
     done
 
     #Workers
-    for host in $2; do
+    for host in $Workers; do
     {
         echo "Executando no node $host"
             $SSH $host rm -rf /etc/modules-load.d/k8s.conf

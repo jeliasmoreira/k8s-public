@@ -1,16 +1,13 @@
 #!/bin/bash
 
+#Includes
+        source ./install/install.param
+
+
  adjust_yum ()
  {
-
-  param1=("${!1}")
-  param2=("${!2}")
-
-exit()
-
-
     #MASTERS
-        for host in $param1; do
+        for host in $MASTERS; do
         {
             echo "Executando no node $host"
                 $YUM clean all
@@ -20,7 +17,7 @@ exit()
         done
 
         #Workers
-        for host in $param2; do
+        for host in $Workers; do
         {
             echo "Executando no node $host"
                 $SSH $host  clean all

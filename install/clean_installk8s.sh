@@ -1,14 +1,14 @@
 #!/bin/bash
 
-param1=("${!1}")
-param2=("${!2}")
-
+#Includes
+        source ./install/install.param
+        
 
 clean_installk8s() {
     #MASTERS
         for host in $1; do
     {
-            echo "Executando no node $param1"
+            echo "Executando no node $MASTER"
                 $SYSTEMCTL stop kubelet.service
                 kubeadm reset -f
                 iptables -F  &&  iptables -t nat -F && iptables -t mangle -F && iptables -X &&
@@ -18,7 +18,7 @@ clean_installk8s() {
         done
 
         #Workers
-        for host in $param2; do
+        for host in $Workers; do
         {
                 $SSH $host $SYSTEMCTL stop kubelet.service
                 $SSH $host kubeadm reset -f

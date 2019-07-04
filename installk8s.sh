@@ -6,67 +6,51 @@
 #Este script de provisionamento requer que as VMS estejam disponiveis e acessveis entre si via keys $SSH
 #Este script foi modularizado, verificadr a sessao de includes para entender cada funcao
 
-#Vars
-    #Nodes
-        NODE_MASTER="192.168.0.34"
-        NODE_01="192.168.185.1"
-        NODE_02="192.168.185.2"
-        MASTERS="192.168.185.1"
-        Workers="192.168.185.2 192.168.185.3"
-    #Files
-        K8S_REPO="/etc/yum.repos.d/kubernetes.repo"
-    #Commands
-        SETENFORCE="/usr/sbin/setenforce"
-        SSH="/usr/bin/ssh"
-        CURL="/usr/bin/curl"
-        SED="/usr/bin/sed"
-        SWAPOFF="/usr/sbin/swapoff"
-        SYSTEMCTL="/usr/bin/systemctl"
-        YUM="/usr/bin/yum -y"
-        TOUCH="/usr/bin/touch"
+
 #Includes
-       source ./install/clean_installk8s.sh
-       source ./install/adjust_yum.sh
-       source ./install/disable_services.sh
-       source ./install/install_repok8s.sh
-       source ./install/install_docker.sh
-       source ./install/install_kubeTools.sh
-       source ./install/enable_sysctls.sh
-       source ./install/k8s_modules.sh
-       source ./install/download_images.sh
-       source ./install/start_cluster.sh
-       source ./install/pod_network.sh
+        source ./install/install.param
+        source ./install/clean_installk8s.sh
+        source ./install/adjust_yum.sh
+        source ./install/disable_services.sh
+        source ./install/install_repok8s.sh
+        source ./install/install_docker.sh
+        source ./install/install_kubeTools.sh
+        source ./install/enable_sysctls.sh
+        source ./install/k8s_modules.sh
+        source ./install/download_images.sh
+        source ./install/start_cluster.sh
+        source ./install/pod_network.sh
 
 
 echo "Limpando possiveis instalacoes anteriores anteriores"
-    clean_installk8s $MASTERS $Workers
+    clean_installk8s 
 
-#echo "Ajustando yum e instalando pacotes bases em todos os nodes"
-#    adjust_yum $MASTERS $Workers
+echo "Ajustando yum e instalando pacotes bases em todos os nodes"
+    adjust_yum
 
-#echo "Desabilitando SeLinux, swap, firewalld e auditd"
-#    disable_services $MASTERS $Workers
+echo "Desabilitando SeLinux, swap, firewalld e auditd"
+    disable_services 
 
-#echo "Instalando reposiorio do k8s"
- #   install_repok8s $MASTERS $Workers
+echo "Instalando reposiorio do k8s"
+   install_repok8s 
 
-#echo "Install kubelet kubeadm kubectl"
- #   install_kubeTools $MASTERS $Workers
+echo "Install kubelet kubeadm kubectl"
+   install_kubeTools 
 
-#echo "Instalando docker"
- #   install_docker $MASTERS $Workers
+echo "Instalando docker"
+   install_docker 
 
-#echo "Habilitando sysctls"
- #   enable_sysctl  $MASTERS $Workers
+echo "Habilitando sysctls"
+   enable_sysctl  
 
-#echo "Criando arquivo de modulos do k8s"
- #   k8s_modules  $MASTERS $Workers
+echo "Criando arquivo de modulos do k8s"
+   k8s_modules  
   
-#echo "Baixando as imagens dos pods que compoem o k8s - Somente no master"
- #   download_images  $MASTERS $Workers
+echo "Baixando as imagens dos pods que compoem o k8s - Somente no master"
+   download_images
 
-#echo "Instalando k8 - Somente no master"
- #   start_cluster $MASTERS $Workers
+echo "Instalando k8 - Somente no master"
+   start_cluster
 
-#echo "Instalando k8s e o pod network - Somente no master"
- #   pod_network  $MASTERS $Workers
+echo "Instalando k8s e o pod network - Somente no master"
+   pod_network  
