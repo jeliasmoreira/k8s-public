@@ -31,7 +31,7 @@
        source ./install/install_repok8s.sh
        source ./install/install_docker.sh
        source ./install/install_kubeTools.sh
-       source ./install/enable_sysctl.sh
+       source ./install/enable_sysctls.sh
        source ./install/k8s_modules.sh
        source ./install/download_modules.sh
        source ./install/startcluster.sh
