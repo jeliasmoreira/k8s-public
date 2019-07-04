@@ -34,7 +34,7 @@
        source ./install/enable_sysctls.sh
        source ./install/k8s_modules.sh
        source ./install/download_images.sh
-       source ./install/startcluster.sh
+       source ./install/start_cluster.sh
        source ./install/pod_network.sh
 
 
@@ -66,7 +66,7 @@ echo "Baixando as imagens dos pods que compoem o k8s - Somente no master"
     download_images  $MASTERS $Workers
 
 echo "Instalando k8 - Somente no master"
-    startcluster $MASTERS $Workers
+    start_cluster $MASTERS $Workers
 
 echo "Instalando k8s e o pod network - Somente no master"
     pod_network  $MASTERS $Workers
