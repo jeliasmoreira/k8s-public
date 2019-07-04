@@ -35,13 +35,13 @@ echo "Instalando reposiorio do k8s"
    install_repok8s 
 
 echo "Install kubelet kubeadm kubectl"
-   install_kubeTools 
+   install_kubeTools
 
 echo "Instalando docker"
    install_docker 
 
 echo "Habilitando sysctls"
-   enable_sysctl  
+   enable_sysctls
 
 echo "Criando arquivo de modulos do k8s"
    k8s_modules  
