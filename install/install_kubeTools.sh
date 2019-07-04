@@ -20,7 +20,7 @@ install_kubeTools()
     #Workers
     for host in $Workers; do
     {
-        echo "Executando no node $Workers"
+        echo "Executando no node $host"
             yum -y update
             ssh  $host yum install -y kubelet kubeadm kubectl
             systemctl enable kubelet.service

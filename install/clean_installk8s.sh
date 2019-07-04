@@ -20,6 +20,7 @@ clean_installk8s() {
         #Workers
         for host in $Workers; do
         {
+                echo "Executando no node $Workers"
                 ssh $host $SYSTEMCTL stop kubelet.service
                 ssh $host kubeadm reset -f
                 ssh $host iptables -F  &&  iptables -t nat -F && iptables -t mangle -F && iptables -X &&
