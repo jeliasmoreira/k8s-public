@@ -50,11 +50,11 @@ echo "Desabilitando SeLinux, swap, firewalld e auditd"
 echo "Instalando reposiorio do k8s"
     install_repok8s $MASTERS $Workers
 
-echo "Instalando docker"
-    install_docker $MASTERS $Workers
-
 echo "Install kubelet kubeadm kubectl"
     install_kubeTools $MASTERS $Workers
+
+echo "Instalando docker"
+    install_docker $MASTERS $Workers
 
 echo "Habilitando sysctls"
     enable_sysctl  $MASTERS $Workers
