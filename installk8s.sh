@@ -33,7 +33,7 @@
        source ./install/install_kubeTools.sh
        source ./install/enable_sysctls.sh
        source ./install/k8s_modules.sh
-       source ./install/download_modules.sh
+       source ./install/download_images.sh
        source ./install/startcluster.sh
        source ./install/pod_network.sh
 
@@ -63,7 +63,7 @@ echo "Criando arquivo de modulos do k8s"
     k8s_modules  $MASTERS $Workers
   
 echo "Baixando as imagens dos pods que compoem o k8s - Somente no master"
-    download_modules  $MASTERS $Workers
+    download_images  $MASTERS $Workers
 
 echo "Instalando k8 - Somente no master"
     startcluster $MASTERS $Workers
