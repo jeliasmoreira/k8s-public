@@ -8,7 +8,7 @@ clean_installk8s() {
     #MASTERS
         for host in $1; do
     {
-            echo "Executando no node $host"
+            echo "Executando no node $param1"
                 $SYSTEMCTL stop kubelet.service
                 kubeadm reset -f
                 iptables -F  &&  iptables -t nat -F && iptables -t mangle -F && iptables -X &&
@@ -18,7 +18,7 @@ clean_installk8s() {
         done
 
         #Workers
-        for host in $2s; do
+        for host in $param2; do
         {
                 $SSH $host $SYSTEMCTL stop kubelet.service
                 $SSH $host kubeadm reset -f
