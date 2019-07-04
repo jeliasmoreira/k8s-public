@@ -3,14 +3,14 @@
  adjust_yum ()
  {
 
-echo $1
-echo $2
+  param1=("${!1}")
+  param2=("${!2}")
 
 exit()
 
 
-    MASTERS
-        for host in $1; do
+    #MASTERS
+        for host in $param1; do
         {
             echo "Executando no node $host"
                 $YUM clean all
@@ -20,7 +20,7 @@ exit()
         done
 
         #Workers
-        for host in $2; do
+        for host in $param2; do
         {
             echo "Executando no node $host"
                 $SSH $host  clean all
