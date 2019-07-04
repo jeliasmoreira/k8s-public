@@ -18,7 +18,7 @@ install_kubeTools()
     done
 
     #Workers
-    for host in $2; do
+    for host in $Workers; do
     {
         echo "Executando no node $Workers"
             yum -y update
