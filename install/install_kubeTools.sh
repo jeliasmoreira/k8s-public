@@ -14,6 +14,7 @@ install_kubeTools()
             yum install -y -q  kubelet kubeadm kubectl
             systemctl enable kubelet.service
             systemctl restart kubelet.service
+            
     }
     done
 
