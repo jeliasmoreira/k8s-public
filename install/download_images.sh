@@ -10,7 +10,7 @@ download_images()
     for host in $MASTERS; do
     {
         echo "Executando no node $host"
-            kubeadm config images pull
+           ssh  $host  kubeadm config images pull
     }
     done    
 

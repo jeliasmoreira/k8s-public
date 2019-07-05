@@ -10,10 +10,10 @@ install_kubeTools()
     for host in $MASTER; do
     {
         echo "Executando no node $host"
-            yum -y update
-            yum install -q -y kubelet kubeadm kubectl
-            systemctl enable kubelet.service
-            systemctl start kubelet.service
+            ssh  $host yum -y update
+            ssh  $host yum install -q -y kubelet kubeadm kubectl
+            ssh  $host systemctl enable kubelet.service
+            ssh  $host systemctl start kubelet.service
     }
     done
 
