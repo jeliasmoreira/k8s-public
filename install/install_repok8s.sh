@@ -10,7 +10,7 @@ install_repok8s() {
     {
        echo "Executando no node $host"
        ssh  $host  rm -rf /etc/yum.repos.d/kubernetes.repo
-       ssh  $host cp ./kubernetes.repo /etc/yum.repos.d/kubernetes.repo
+       scp ./kubernetes.repo root@$host:/etc/yum.repos.d/kubernetes.repo
        ssh  $host yum -y -q update
     }
     done
