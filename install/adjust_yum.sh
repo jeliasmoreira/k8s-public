@@ -10,11 +10,11 @@
         for host in $MASTERS; do
         {
             echo "Executando no node $host"
-                yum -y clean all
+                yum -y -q clean all
                 yum-complete-transaction --cleanup-only
                 yum history redo last
-                yum install -y yum-plugin-fastestmirror
-                yum install -y git curl bind-utils yum-utils device-mapper-persistent-data lvm2
+                yum install -q -y yum-plugin-fastestmirror
+                yum install -q -y git curl bind-utils yum-utils device-mapper-persistent-data lvm2
         }
         done
 
@@ -22,11 +22,11 @@
         for host in $Workers; do
         {
             echo "Executando no node $host"
-                ssh $host yum -y clean all
+                ssh $host yum -q -y clean all
                 ssh $host yum-complete-transaction --cleanup-only
-                ssh $host yum history redo last
-                ssh $host yum -y install yum-plugin-fastestmirror
-                ssh $host yum -y install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
+                ssh $host yum -q -y history redo last
+                ssh $host yum -q -y install yum-plugin-fastestmirror
+                ssh $host yum -q -y install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
             }
         done
 
