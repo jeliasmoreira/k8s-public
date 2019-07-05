@@ -10,8 +10,8 @@ k8s_modules()
     for host in $MASTERS; do
    {
         echo "Executando no node $host"
-            rm -rf /etc/modules-load.d/k8s.conf
-            cp ./k8s.conf /etc/modules-load.d/
+            ssh $host rm -rf /etc/modules-load.d/k8s.conf
+            scp ./k8s.conf root@$host:/etc/modules-load.d/k8s.conf
     }
     done
 

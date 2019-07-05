@@ -7,7 +7,7 @@ install_kubeTools()
 
 {
     #MASTERS
-    for host in $MASTER; do
+    for host in $MASTERS; do
     {
         echo "Executando no node $host"
             ssh  $host yum -y update
