@@ -26,7 +26,7 @@ echo " ######### Limpando possiveis instalacoes anteriores anteriores "
     clean_installk8s 
 
 echo " ######### Ajustando yum e instalando pacotes bases em todos os nodes"
-    adjust_yum
+     adjust_yum
 
 echo " ######### Desabilitando SeLinux, swap, firewalld e auditd"
     disable_services
@@ -35,22 +35,22 @@ echo " ######### Habilitando sysctls"
    enable_sysctls
 
 echo " ######### Criando arquivo de modulos do k8s"
-   k8s_modules
+    k8s_modules
 
 echo " ######### Instalando reposiorio do k8s"
-   install_repok8s 
+     install_repok8s 
 
 echo " ######### Install kubelet kubeadm kubectl"
-   install_kubeTools
-
+    install_kubeTools
+   
 echo " ######### Instalando docker"
-   install_docker 
+    install_docker 
   
 echo " ######### Baixando as imagens dos pods que compoem o k8s - Somente no master"
-   download_images
+      download_images
 
 echo " ######### Instalando k8 - Somente no master"
-   start_cluster
+      start_cluster
 
 echo " ######### Instalando k8s e o pod network - Somente no master"
-   pod_network  
+      pod_network  

@@ -10,9 +10,11 @@
         for host in $MASTERS; do
         {
             echo "Executando no node $host"
-                $YUM clean all
-                $YUM install yum-plugin-fastestmirror
-                $YUM install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
+                yum-complete-transaction --cleanup-only
+                yum history redo last
+                yum clean all
+                yum install yum-plugin-fastestmirror
+                yum install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
         }
         done
 
@@ -20,9 +22,9 @@
         for host in $Workers; do
         {
             echo "Executando no node $host"
-                $SSH $host  clean all
-                $SSH $host install yum-plugin-fastestmirror
-                $SSH $host $YUM install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
+                ssh $host  clean all
+                ssh $host install yum-plugin-fastestmirror
+                ssh $host yum install git curl bind-utils yum-utils device-mapper-persistent-data lvm2
             }
         done
 
