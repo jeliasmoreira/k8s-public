@@ -11,10 +11,9 @@ install_kubeTools()
     {
         echo "Executando no node $host"
             yum -y update
-            yum install -y kubelet kubeadm kubectl
+            yum install -q -y kubelet kubeadm kubectl
             systemctl enable kubelet.service
             systemctl start kubelet.service
-            exit
     }
     done
 
@@ -24,8 +23,8 @@ install_kubeTools()
         echo "Executando no node $host"
             ssh  $host yum-complete-transaction --cleanup-only
             ssh  $host yum history redo last
-            ssh  $host yum -y update
-            ssh  $host yum install -y kubelet kubeadm kubectl
+            ssh  $host yum -q -y update
+            ssh  $host yum install -q -y kubelet kubeadm kubectl
             ssh  $host systemctl enable kubelet.service
             ssh  $host systemctl start kubelet.service
     }
