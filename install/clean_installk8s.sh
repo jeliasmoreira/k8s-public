@@ -13,8 +13,7 @@ clean_installk8s() {
                kubeadm reset -f
                iptables -F  &&  iptables -t nat -F && iptables -t mangle -F && iptables -X &&
                rm -rf /etc/kubernetes/ && rm -rf /var/lib/etcd/ && rm -rf  /root/.kube/ && rm -rf /var/lib/kubelet/
-               docker rm $(docker ps -qa --no-trunc --filter "status=exited")
-               docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
+               docker system prune -af
 
                 
     }
@@ -28,8 +27,7 @@ clean_installk8s() {
                 ssh $host kubeadm reset -f
                 ssh $host iptables -F  &&  iptables -t nat -F && iptables -t mangle -F && iptables -X &&
                 ssh $host rm -rf /etc/kubernetes/ && rm -rf /var/lib/etcd/ && rm -rf  /root/.kube/ && rm -rf /var/lib/kubelet/
-                ssh $host docker rm $(docker ps -qa --no-trunc --filter "status=exited")
-                ssh $host docker rmi $(docker images | grep "none" | awk '/ / { print $3 }')
+                ssh $host docker system prune -af
                 
         }
     done

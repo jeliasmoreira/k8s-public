@@ -29,6 +29,7 @@ enable_sysctls()
 
             scp ./install/sysctls_workers.sh root@$host:/tmp/sysctls_workers.sh
             ssh $host sh /tmp/sysctls_workers.sh
+    }
     done
 
 
