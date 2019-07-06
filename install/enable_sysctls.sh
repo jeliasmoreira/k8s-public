@@ -26,13 +26,9 @@ enable_sysctls()
     for host in $Workers; do
     {
         echo "Executando no node $host"
-            ssh $host echo "1" >  /proc/sys/net/ipv4/ip_forward
-            ssh $host echo "1" >  /proc/sys/net/bridge/bridge-nf-call-iptables
-            ssh $host echo "net.bridge.bridge-nf-call-iptables = 1" >> /etc/sysctl.d/99-sysctl.conf
-            ssh $host echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.d/99-sysctl.conf
-            ssh $host echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.d/99-sysctl.conf
-            ssh $host sysctl -p -q
-    }
+
+            scp ./install/sysctls_workers.sh root@$host:/tmp/sysctls_workers.sh
+            ssh $host sh /tmp/sysctls_workers.sh
     done
 
 
