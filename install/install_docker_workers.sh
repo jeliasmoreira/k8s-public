@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Includes
-        source ./install/install.param
+        source install.param
 
 
   
