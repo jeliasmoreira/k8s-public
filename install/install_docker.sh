@@ -30,18 +30,8 @@
         #Workers
         for host in $Workers; do
         {
-            ssh $host rpm -qa| grep -i docker-ce >> /dev/null
-
-            if [ $? != 0 ]; 
-            then {
-                echo "Executando no node $host"
-                ssh $host $CURL -fsSL https://get.docker.com | bash
-                    ssh $host $SYSTEMCTL enable docker
-                    ssh $host $SYSTEMCTL start docker
-                } else {
-                echo "Docker ja instalado em $host"
-                    ssh $host $SYSTEMCTL enable docker
-                    ssh $host $SYSTEMCTL start docker
+             scp ./install/install_docker_workers.sh root@$host:/tmp/install_docker_workers.sh
+             ssh $host sh /tmp/install_docker_workers.sh
             } fi
 
         }
