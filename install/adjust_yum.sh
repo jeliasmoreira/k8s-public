@@ -11,10 +11,10 @@
         {
             echo "Executando no node $host"
                 
-                yum -y -q clean all
+                yum -y clean all
                 yum-complete-transaction --cleanup-only
                 yum history redo last
-                yum -y -q install deltarpm
+                yum -y install deltarpm
                 yum install -y  yum-plugin-fastestmirror
                 rm -rf /etc/yum.repos.d/kubernetes.repo
                 cp ./kubernetes.repo /etc/yum.repos.d/kubernetes.repo
@@ -26,10 +26,10 @@
         for host in $Workers; do
         {
             echo "Executando no node $host"
-                ssh $host yum -y -q clean all
+                ssh $host yum -y  clean all
                 ssh $host yum-complete-transaction --cleanup-only
-                ssh $host yum -y -q history redo last
-                ssh $host yum -y -q install deltarpm
+                ssh $host yum -y  history redo last
+                ssh $host yum -y  install deltarpm
                 ssh $host yum -y  install yum-plugin-fastestmirror
                 ssh $host rm -rf /etc/yum.repos.d/kubernetes.repo
                 scp ./kubernetes.repo root@$host:/etc/yum.repos.d/kubernetes.repo
