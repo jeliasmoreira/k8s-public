@@ -14,12 +14,12 @@
 
             if [ $? != 0 ];
             then  {
-                echo "Executando no node $i"
+                echo "Executando no node $host"
                 $CURL -fsSL https://get.docker.com | bash
                     $SYSTEMCTL enable docker
                     $SYSTEMCTL start docker
                 } else  {
-                echo "Docker ja instalado em $i"
+                echo "Docker ja instalado em $host"
                     $SYSTEMCTL enable docker
                     $SYSTEMCTL start docker
             } fi
@@ -30,18 +30,18 @@
         #Workers
         for host in $Workers; do
         {
-            $SSH $host rpm -qa| grep -i docker-ce >> /dev/null
+            ssh $host rpm -qa| grep -i docker-ce >> /dev/null
 
             if [ $? != 0 ]; 
             then {
                 echo "Executando no node $host"
-                $SSH $host $CURL -fsSL https://get.docker.com | bash
-                    $SSH $host $SYSTEMCTL enable docker
-                    $SSH $host $SYSTEMCTL start docker
+                ssh $host $CURL -fsSL https://get.docker.com | bash
+                    ssh $host $SYSTEMCTL enable docker
+                    ssh $host $SYSTEMCTL start docker
                 } else {
                 echo "Docker ja instalado em $host"
-                    $SSH $host $SYSTEMCTL enable docker
-                    $SSH $host $SYSTEMCTL start docker
+                    ssh $host $SYSTEMCTL enable docker
+                    ssh $host $SYSTEMCTL start docker
             } fi
 
         }
