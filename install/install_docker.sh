@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Includes
+        source ./install/install.param
+
+
  install_docker()
 
  {
