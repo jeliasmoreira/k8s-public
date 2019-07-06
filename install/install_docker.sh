@@ -10,7 +10,7 @@
     #MASTERS
         for host in $MASTERS; do
         {
-            rpm -qa| grep -i docker >> /dev/null
+            rpm -qa| grep -i docker-ce >> /dev/null
 
             if [ $? != 0 ];
             then  {
@@ -30,7 +30,7 @@
         #Workers
         for host in $Workers; do
         {
-            rpm -qa| grep -i docker >> /dev/null
+            $SSH $host rpm -qa| grep -i docker-ce >> /dev/null
 
             if [ $? != 0 ]; 
             then {
