@@ -17,6 +17,7 @@ disable_services()
             $SYSTEMCTL disable firewalld
             $SYSTEMCTL stop firewalld
             $SYSTEMCTL disable auditd
+            service auditd stop
     }
     done
 
@@ -30,6 +31,7 @@ disable_services()
             $SSH $host $SYSTEMCTL disable firewalld
             $SSH $host $SYSTEMCTL stop firewalld
             $SSH $host $SYSTEMCTL disable auditd
+             $SSH $host service auditd stop
     }
     done
 
