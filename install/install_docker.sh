@@ -4,7 +4,7 @@
 
  {
     #MASTERS
-        for host in $1; do
+        for host in $MASTERS; do
         {
             rpm -qa| grep -i docker >> /dev/null
 
@@ -24,7 +24,7 @@
         done
 
         #Workers
-        for host in $2; do
+        for host in $Workers; do
         {
             rpm -qa| grep -i docker >> /dev/null
 
