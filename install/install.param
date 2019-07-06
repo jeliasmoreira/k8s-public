@@ -2,11 +2,11 @@
 
 #Vars
     #Nodes
-        NODE_MASTER="192.168.0.34"
+        #NODE_MASTER="192.168.0.34"
         NODE_01="192.168.185.1"
         NODE_02="192.168.185.2"
-        MASTERS="192.168.185.1"
-        Workers="192.168.185.2 192.168.185.3"
+        MASTERS="192.168.0.32"
+        Workers="192.168.0.33 192.168.0.34"
     #Files
         K8S_REPO="/etc/yum.repos.d/kubernetes.repo"
     #Modules
