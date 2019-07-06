@@ -22,35 +22,35 @@
         source ./install/pod_network.sh
 
 
-echo " ######### Limpando possiveis instalacoes anteriores anteriores "
+echo -e "\e[1;31mLimpando possiveis instalacoes anteriores anteriores\e[0m"
     clean_installk8s 
 
-echo " ######### Ajustando yum e instalando pacotes bases em todos os nodes"
+echo -e "\e[1;31mAjustando yum e instalando pacotes bases em todos os nodes\e[0m"
      adjust_yum
 
-echo " ######### Desabilitando SeLinux, swap, firewalld e auditd"
+echo -e "\e[1;31mDesabilitando SeLinux, swap, firewalld e auditd\e[0m"
     disable_services
 
-echo " ######### Habilitando sysctls"
+echo -e "\e[1;31mHabilitando sysctls\e[0m"
    enable_sysctls
 
-echo " ######### Criando arquivo de modulos do k8s"
+echo -e "\e[1;31m Criando arquivo de modulos do k8s\e[0m"
     k8s_modules
 
-echo " ######### Instalando reposiorio do k8s"
+echo -e "\e[1;31m Instalando reposiorio do k8s\e[0m"
      install_repok8s 
 
-echo " ######### Install kubelet kubeadm kubectl"
+echo -e "\e[1;31m Install kubelet kubeadm kubectl\e[0m"
     install_kubeTools
    
-echo " ######### Instalando docker"
+echo -e "\e[1;31m Instalando docker\e[0m"
     install_docker 
   
-echo " ######### Baixando as imagens dos pods que compoem o k8s - Somente no master"
+echo -e "\e[1;31m Baixando as imagens dos pods que compoem o k8s - Somente no master\e[0m"
       download_images
 
-echo " ######### Instalando k8 - Somente no master"
+echo -e "\e[1;31m Instalando k8 - Somente no master\e[0m"
       start_cluster
 
-echo " ######### Instalando k8s e o pod network - Somente no master"
+echo -e "\e[1;31m Instalando k8s e o pod network - Somente no master\e[0m"
       pod_network  
