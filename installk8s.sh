@@ -37,8 +37,8 @@ echo -e "\e[1;31mHabilitando sysctls\e[0m"
 echo -e "\e[1;31m Criando arquivo de modulos do k8s\e[0m"
     k8s_modules
 
-echo -e "\e[1;31m Instalando reposiorio do k8s\e[0m"
-     install_repok8s 
+#echo -e "\e[1;31m Instalando reposiorio do k8s\e[0m"
+#     install_repok8s 
 
 echo -e "\e[1;31m Install kubelet kubeadm kubectl\e[0m"
     install_kubeTools
