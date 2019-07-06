@@ -1,20 +1,15 @@
 #!/bin/bash
 
-#Includes
-        source install.param
-
-
-  
             rpm -qa| grep -i docker-ce >> /dev/null
 
             if [ $? != 0 ];
             then  {
                 echo "Executando no node $(hostname -i)"
-                $CURL -fsSL https://get.docker.com | bash
-                    $SYSTEMCTL enable docker
-                    $SYSTEMCTL start docker
+                curl -fsSL https://get.docker.com | bash
+                    systemctl enable docker
+                    systemctl start docker
                 } else  {
                 echo "Docker ja instalado em $(hostname -i)"
-                    $SYSTEMCTL enable docker
-                    $SYSTEMCTL start docker
+                    systemctl enable docker
+                    systemctl start docker
             } fi
