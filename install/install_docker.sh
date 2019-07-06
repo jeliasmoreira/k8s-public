@@ -32,8 +32,6 @@
         {
              scp ./install/install_docker_workers.sh root@$host:/tmp/install_docker_workers.sh
              ssh $host sh /tmp/install_docker_workers.sh
-            } fi
-
         }
         done
 
