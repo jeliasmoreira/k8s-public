@@ -10,7 +10,7 @@
         for host in $MASTERS; do
         {
             echo "Executando no node $host"
-                ssh  $host yum -y -q clean all
+                yum -y -q clean all
                 #ssh  $host yum-complete-transaction --cleanup-only
                 #ssh  $host yum history redo last
                 yum install -y -q yum-plugin-fastestmirror
