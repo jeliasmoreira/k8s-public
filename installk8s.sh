@@ -54,3 +54,8 @@ echo -e "\e[1;31m Instalando k8 - Somente no master\e[0m"
 
 echo -e "\e[1;31m Instalando k8s e o pod network - Somente no master\e[0m"
       pod_network  
+
+echo -e "\e[1;31m Habilitnando o auto complete - Somente no master\e[0m"
+        source <(kubectl completion bash)
+        echo "source <(kubectl completion bash)" >> /root/.bashrc
+        systemctl restart kubelet
