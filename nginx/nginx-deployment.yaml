@@ -17,8 +17,6 @@ spec:
         k8s-app: nginx-ingress-lb
         name: nginx-ingress-lb
     spec:
-      serviceAccountName: traefik-ingress-controller
-      terminationGracePeriodSeconds: 60
       containers:
       - image: nginx
         name: nginx-ingress-lb
