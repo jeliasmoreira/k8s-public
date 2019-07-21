@@ -2,15 +2,14 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: nginx 
-  namespace: prod
+  name: nginx-web-ui
+  namespace: kube-system
 spec:
   rules:
-  - host: nginx
+  - host: nginx.local.lab
     http:
       paths:
       - path: /
         backend:
-          serviceName: nginx
-          servicePort: web
-
+          serviceName: nginx-ingress-service
+          servicePort: http
