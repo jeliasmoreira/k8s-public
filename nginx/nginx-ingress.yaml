@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx 
+  namespace: prod
+spec:
+  rules:
+  - host: nginx
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: nginx
+          servicePort: web
+

@@ -18,7 +18,7 @@
                 yum install -y  yum-plugin-fastestmirror
                 rm -rf /etc/yum.repos.d/kubernetes.repo
                 cp ./kubernetes.repo /etc/yum.repos.d/kubernetes.repo
-                yum install -y   epel-release git curl bind-utils yum-utils device-mapper-persistent-data lvm2 yum install  bind-utils tcpdump net-tools mlocate mail
+                yum install -y install bash-completion  epel-release git curl bind-utils yum-utils device-mapper-persistent-data lvm2 yum install  bind-utils tcpdump net-tools mlocate mail
         }
         done
 

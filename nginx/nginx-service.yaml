@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: prod
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30366
+    port: 80
+    name: web
+    protocol: TCP
+    targetPort: 80
+  selector:
+    k8s-app: nginx
+  sessionAffinity: None
+  type: LoadBalancer
