@@ -3,7 +3,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: nginx-web-ui
-  namespace: kube-system
+  namespace: prod
 spec:
   rules:
   - host: nginx.local.lab
