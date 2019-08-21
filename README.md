@@ -32,7 +32,9 @@ Comando para geração das chaves SSH (execute em todos os nodos)
 3. Desligar o swap (caso exista)
  
  Comando para desligar o swap (execute em todos os nodos) 
+ 
   #swapoff -a
+  
   Edite o arquivo /etc/fstab e comente a linha que referencia a partição de swap
   
 Quando estes preparativos estiverem feitos, clone o este repositorio. Edite o arquivo install/install.param da seguinte forma.
