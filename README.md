@@ -1,10 +1,9 @@
 # k8s-public
 
-Repositório publico para compartilhamento de scripts relacionados a kubernetes.
+Repositório publico para compartilhamento de scripts relacionados a kubernetes. O S.O em questão é por padrão o CentOS 7.x.
 
-A arquitetura inicial é um cluster composto por um master e dois workers conectados localmente e com autenticação via chaves SSH com usuario root.
+A arquitetura inicial é um cluster composto por três nodos, um master e dois workers, conectados localmente e com autenticação via chaves SSH com usuario root. 
 
-O S.O em questão é por padrão o CentOS 7.x.
 
 AVISO!
 
